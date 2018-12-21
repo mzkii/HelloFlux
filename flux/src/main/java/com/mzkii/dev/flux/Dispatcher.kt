@@ -1,13 +1,11 @@
-package com.mzkii.dev.helloflux.flux
+package com.mzkii.dev.flux
 
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.meta.SubscriberInfoIndex
 import timber.log.Timber
 
-class Dispatcher(index: SubscriberInfoIndex?) {
+class Dispatcher {
     private val bus = EventBus.builder()
         .throwSubscriberException(true)
-        .also { if (index != null) it.addIndex(index) }
         .build()
 
     fun dispatch(event: Any) {

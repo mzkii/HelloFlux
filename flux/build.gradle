@@ -1,25 +1,30 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+//https://stackoverflow.com/questions/49124353/unresolved-reference-errors-for-android-library-module-referenced-in-app-modul
 
 android {
     compileSdkVersion 28
+
+
+
     defaultConfig {
-        applicationId "com.mzkii.dev.helloflux"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -33,17 +38,4 @@ dependencies {
 
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
-    // Koin for Android
-    implementation 'org.koin:koin-android:1.0.2'
-    // Android Scope feature
-    implementation 'org.koin:koin-android-scope:1.0.2'
-    // Android Scope feature - AndroidX
-    implementation 'org.koin:koin-androidx-scope:1.0.2'
-    // Android Architecture ViewModel feature
-    implementation 'org.koin:koin-android-viewmodel:1.0.2'
-    // Android Architecture ViewModel feature - AndroidX
-    implementation 'org.koin:koin-androidx-viewmodel:1.0.2'
-
-    implementation project(':flux')
 }
