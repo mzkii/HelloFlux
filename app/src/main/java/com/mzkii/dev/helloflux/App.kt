@@ -13,14 +13,18 @@ class App : Application() {
 
     private val appModule = module {
         single { Dispatcher() }
+    }
+
+    private val uiModule = module {
         factory { HomeActionCreator(get()) }
         viewModel { HomeStore(get()) }
     }
+
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        startKoin(this, listOf(appModule))
+        startKoin(this, listOf(appModule, uiModule))
     }
 }
