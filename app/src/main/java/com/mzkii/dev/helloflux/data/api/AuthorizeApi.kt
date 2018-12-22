@@ -2,10 +2,7 @@ package com.mzkii.dev.helloflux.data.api
 
 import com.mzkii.dev.helloflux.data.api.response.AccessToken
 import io.reactivex.Single
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface AuthorizeApi {
     @Headers("Accept: application/json")

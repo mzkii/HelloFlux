@@ -7,6 +7,6 @@ import io.reactivex.Single
 class GithubRepository(
     private val githubApi: GithubApi
 ) {
-    fun getMyRepositoryList(accessToken: String): Single<List<Repository>> =
-        githubApi.getMyRepositoryList(accessToken)
+    fun getMyRepositoryList(accessToken: String, page: Int): Single<List<Repository>> =
+        githubApi.getMyRepositoryList(accessToken, page, perPage = 10)
 }

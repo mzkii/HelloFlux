@@ -14,9 +14,9 @@ class HomeActionCreator(
     dispatcher: Dispatcher
 ) : ActionCreator<HomeAction>(dispatcher) {
 
-    fun getMyRepositoryList() =
+    fun getMyRepositoryList(page: Int) =
         repository
-            .getMyRepositoryList(appSetting.accessToken)
+            .getMyRepositoryList(appSetting.accessToken, page)
             .subscribeOn(Schedulers.io())
             .doOnSubscribe { dispatch(HomeAction.ShowLoading(true)) }
             .doFinally { dispatch(HomeAction.ShowLoading(false)) }
