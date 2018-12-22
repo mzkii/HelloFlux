@@ -17,7 +17,7 @@ class AuthorizeActivity : AppCompatActivity() {
 
     companion object {
         private const val URI = "https://github.com/login/oauth/authorize?client_id=" +
-                "${BuildConfig.CLIENT_ID}&scope=gist user admin&redirect_uri=${BuildConfig.REDIRECT_URI}"
+                "${BuildConfig.CLIENT_ID}&redirect_uri=${BuildConfig.REDIRECT_URI}"
     }
 
     private val store: AuthorizeStore by viewModel()
