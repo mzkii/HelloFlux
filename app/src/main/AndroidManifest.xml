@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.mzkii.dev.helloflux">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:name=".App"
             android:allowBackup="true"
@@ -10,12 +12,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.home.MainActivity">
+        <activity android:name=".ui.authorize.AuthorizeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                        android:host="${redirect_host}"
+                        android:scheme="${redirect_scheme}" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.MainActivity">
         </activity>
     </application>
 
